@@ -1,0 +1,36 @@
+# Node.js / Python / PHPなど言語固有の依存フォルダ
+node_modules/
+vendor/
+__pycache__/
+
+# OS系ファイル
+.DS_Store
+Thumbs.db
+
+# 環境設定ファイル（機密情報含む場合）
+.env
+.env.local
+.env.*.local
+
+# Docker関連
+# コンテナ内で生成される一時ファイルやログ
+docker-compose.override.yml
+*.log
+tmp/
+cache/
+
+# Dockerボリュームやコンテナ内部のデータ
+docker/data/
+docker/volumes/
+
+# ビルド成果物
+dist/
+build/
+
+# Dockerイメージ関連
+*.tar
+
+# IDE / エディタ関連
+.idea/
+.vscode/
+*.swp
