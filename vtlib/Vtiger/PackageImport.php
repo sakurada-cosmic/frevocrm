@@ -320,7 +320,7 @@ class Vtiger_PackageImport extends Vtiger_PackageExport {
 
 			$unzip = new Vtiger_Unzip($zipfile, $overwrite);
 
-			if($overwrite) {
+			if(!$overwrite) {
 				// Unzip selectively
 				$unzip->unzipAllEx( ".",
 					Array(

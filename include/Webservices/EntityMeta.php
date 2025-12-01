@@ -266,17 +266,27 @@ abstract class EntityMeta{
 		return $accessControlQuery;
 	}
 
+	// public function getEntityDeletedQuery(){
+	// 	$baseTable = $this->getEntityBaseTable();
+	// 	if($this->getEntityName() == 'Leads') {
+	// 		return "$baseTable.deleted=0 and vtiger_leaddetails.converted=0";
+	// 	}
+	// 	if($this->getEntityName() != "Users"){
+	// 		return "$baseTable.deleted=0";
+	// 	}
+	// 	// not sure whether inactive users should be considered deleted or not.
+	// 	return "vtiger_users.status='Active'";
+	// }
 	public function getEntityDeletedQuery(){
-		$baseTable = $this->getEntityBaseTable();
-		if($this->getEntityName() == 'Leads') {
-			return "$baseTable.deleted=0 and vtiger_leaddetails.converted=0";
-		}
-		if($this->getEntityName() != "Users"){
-			return "$baseTable.deleted=0";
-		}
-		// not sure whether inactive users should be considered deleted or not.
-		return "vtiger_users.status='Active'";
-	}
+        if($this->getEntityName() == 'Leads') {
+            return "vtiger_crmentity.deleted=0 and vtiger_leaddetails.converted=0";
+        }
+        if($this->getEntityName() != "Users"){
+            return "vtiger_crmentity.deleted=0";
+        }
+        // not sure whether inactive users should be considered deleted or not.
+        return "vtiger_users.status='Active'";
+    }
 
 	abstract function hasPermission($operation,$webserviceId);
 	abstract function hasAssignPrivilege($ownerWebserviceId);

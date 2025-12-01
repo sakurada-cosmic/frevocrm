@@ -1,0 +1,17 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_vseven</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_vseven` (`vsevenid` int(11) NOT NULL, `vsevenno` varchar(100) default NULL, `vseven_tks_testname` varchar(10) default NULL   , PRIMARY KEY (`vsevenid`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+		<table>
+			<name>vtiger_vsevencf</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_vsevencf` (`vsevenid` int(11) NOT NULL, PRIMARY KEY (`vsevenid`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+		<table>
+			<name>vtiger_vseven_user_field</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_vseven_user_field` (`recordid` int(25) NOT NULL, `userid` int(25) NOT NULL, `starred` varchar(100) default NULL , KEY (`vtiger_vseven_user_field`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+	</tables>
+</schema>

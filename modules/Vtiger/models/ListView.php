@@ -239,23 +239,38 @@ class Vtiger_ListView_Model extends Vtiger_Base_Model {
 		$startIndex = $pagingModel->getStartIndex();
 		$pageLimit = $pagingModel->getPageLimit();
 
-		if(!empty($orderBy) && $orderByFieldModel) {
-			if($orderBy == 'roleid' && $moduleName == 'Users'){
-				$listQuery .= ' ORDER BY vtiger_role.rolename '.' '. $sortOrder; 
-			} else {
-				$listQuery .= ' ORDER BY '.$queryGenerator->getOrderByColumn($orderBy).' '.$sortOrder;
-			}
+		// if(!empty($orderBy) && $orderByFieldModel) {
+		// 	if($orderBy == 'roleid' && $moduleName == 'Users'){
+		// 		$listQuery .= ' ORDER BY vtiger_role.rolename '.' '. $sortOrder; 
+		// 	} else {
+		// 		$listQuery .= ' ORDER BY '.$queryGenerator->getOrderByColumn($orderBy).' '.$sortOrder;
+		// 	}
 
-			if ($orderBy == 'first_name' && $moduleName == 'Users') {
-				$listQuery .= ' , last_name '.' '. $sortOrder .' ,  email1 '. ' '. $sortOrder;
-			} 
-		} else if(empty($orderBy) && empty($sortOrder) && $moduleName != "Users"){
-			$baseTable = $moduleFocus->table_name;
-			if(empty($baseTable)) {
-				$baseTable = "vtiger_crmentity";
-			}
-			$listQuery .= " ORDER BY ".$baseTable.".modifiedtime DESC";
-		}
+		// 	if ($orderBy == 'first_name' && $moduleName == 'Users') {
+		// 		$listQuery .= ' , last_name '.' '. $sortOrder .' ,  email1 '. ' '. $sortOrder;
+		// 	} 
+		// } 
+		// else if(empty($orderBy) && empty($sortOrder) && $moduleName != "Users"){
+		// 	$baseTable = $moduleFocus->table_name;
+		// 	if(empty($baseTable)) {
+		// 		$baseTable = "vtiger_crmentity";
+		// 	}
+		// 	$listQuery .= " ORDER BY ".$baseTable.".modifiedtime DESC";
+		// }
+
+		if(!empty($orderBy) && $orderByFieldModel) {
+            if($orderBy == 'roleid' && $moduleName == 'Users'){
+                $listQuery .= ' ORDER BY vtiger_role.rolename '.' '. $sortOrder;
+            } else {
+                $listQuery .= ' ORDER BY '.$queryGenerator->getOrderByColumn($orderBy).' '.$sortOrder;
+            }
+            if ($orderBy == 'first_name' && $moduleName == 'Users') {
+                $listQuery .= ' , last_name '.' '. $sortOrder .' ,  email1 '. ' '. $sortOrder;
+            }
+        } else if(empty($orderBy) && empty($sortOrder) && $moduleName != "Users"){
+            //List view will be displayed on recently created/modified records
+            $listQuery .= ' ORDER BY vtiger_crmentity.modifiedtime DESC';
+        }
 
 		$viewid = ListViewSession::getCurrentView($moduleName);
 		if(empty($viewid)) {
