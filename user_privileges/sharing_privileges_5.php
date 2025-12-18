@@ -142,18 +142,6 @@ $Dailyreports_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
 
 $Dailyreports_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
 
-$Eight_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
-
-$Eight_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
-
-$TestMod_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
-
-$TestMod_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
-
-$Aiueo_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
-
-$Aiueo_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
-
 $NewModule_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
 
 $NewModule_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
