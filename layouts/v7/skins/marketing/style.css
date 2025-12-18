@@ -347,14 +347,6 @@ body > .mCSB_inside > .mCSB_container {
   .vicon-calendarlist {
     display: none;
   }
-  button[data-trigger="listSearch"] {
-    font-size: 11px;
-    min-width: auto;
-    width: auto !important;
-  }
-  button[data-trigger="listSearch"] .fa-search {
-    display: none;
-  }
 }
 @media (max-width: 991px) {
   .global-nav .logo-container {
@@ -8108,10 +8100,5 @@ a.btnReport:hover {
 .model-body-scrollenabled {
   height: 450px;
   overflow: auto;
-}
-/* Hide list search button group and actions container only for Accounts module */
-.main-container-Accounts .btn-group[data-trigger="listSearch"],
-.main-container-Accounts .listViewActionsContainer {
-  display: none !important;
 }
 /*# sourceMappingURL=style.css.map */
